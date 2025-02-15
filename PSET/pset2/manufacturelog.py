@@ -1,4 +1,18 @@
+# Kuljit Takhar  
+# CS101 PSET 2
+   
+#   Validates and extracts batch manufacturing logs from a given string.
+#    A valid batch log follows the format:
+#    B####PXXQ###DYYYYMMDD (where # = digits, X = uppercase letters)
+    
+#   Returns:
+#       - A list of dictionaries containing valid batch details if the string is correctly formatted.
+#       - "invalid" (string) if the log does not adhere to the format.
+
+# 100/100
+
 def validate_and_extract_log(s):
+
     batches_info = []
     i = 0
     
@@ -15,7 +29,7 @@ def validate_and_extract_log(s):
         i += 4
         
         # Ensure Product Code starts with 'P'
-        if s[i] != 'P':
+        if i >= len(s) or s[i] != 'P':
             return "invalid"
         i += 1
         
@@ -26,11 +40,11 @@ def validate_and_extract_log(s):
         i += 2
         
         # Ensure Quantity section starts with 'Q'
-        if s[i] != 'Q':
+        if i >= len(s) or s[i] != 'Q':
             return "invalid"
         i += 1
         
-        # Extract Quantity (should be an integer > 0, allowing leading zeros)
+        # Extract Quantity (should be an integer > 0, leading zeros allowed)
         quantity_start = i
         while i < len(s) and s[i].isdigit():
             i += 1
