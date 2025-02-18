@@ -1,7 +1,7 @@
 # Kuljit Takhar  
 # CS101 PSET 2
    
-#   Validates and extracts batch manufacturing logs from a given string.
+#    Validates and extracts batch manufacturing logs from a given string.
 #    A valid batch log follows the format:
 #    B####PXXQ###DYYYYMMDD (where # = digits, X = uppercase letters)
     
