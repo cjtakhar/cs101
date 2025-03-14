@@ -1,3 +1,5 @@
+# grade 100/100
+
 #import libraries
 import mysql.connector as sq
 

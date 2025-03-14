@@ -21,11 +21,19 @@ mydb = sq.connect(
 mycursor = mydb.cursor()
 print("Connected to MySQL server!")
 
-# Create database if it doesn't exist
-mycursor.execute("CREATE DATABASE IF NOT EXISTS monthly_revenue")
+# Create database if it doesn't exist inside of try block
+try:
+    mycursor.execute("CREATE DATABASE IF NOT EXISTS monthly_revenue")
+    print("✅ Database 'monthly_revenue' created or already exists.")
+except Exception as e:
+    print(f"❌ Error creating database: {e}")
 
-# Select database
-mycursor.execute("USE monthly_revenue") 
+# Select database inside of try block
+try:
+    mycursor.execute("USE monthly_revenue") 
+    print("✅ Database 'monthly_revenue' selected.")
+except Exception as e:
+    print(f"❌ Error selecting database: {e}")
 
 # Create table with correct data types
 create_table_query = """
@@ -47,8 +55,11 @@ CREATE TABLE IF NOT EXISTS revenue (
 """
 
 # Execute query
-mycursor.execute(create_table_query)
-print("✅ Table 'revenue' created or already exists.")
+try: 
+    mycursor.execute(create_table_query)
+    print("✅ Table 'revenue' created or already exists.")
+except Exception as e:
+    print(f"❌ Error creating table: {e}")
 
 # Load data into MySQL
 load_data_query = f"""
