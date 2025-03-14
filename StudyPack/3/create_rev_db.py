@@ -16,6 +16,8 @@ mydb = sq.connect(
     password="dataisfun",
     allow_local_infile=True
 )
+
+# Create cursor
 mycursor = mydb.cursor()
 print("Connected to MySQL server!")
 
@@ -59,6 +61,7 @@ IGNORE 1 ROWS
 (Date, Land_Class, Land_Category, State, County, FIPS_Code, Offshore_Region, Revenue_Type, Mineral_Lease_Type, Commodity, Product, Revenue);
 """
 
+# Execute query
 try:
     mycursor.execute(load_data_query)
     mydb.commit()
