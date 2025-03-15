@@ -1,13 +1,14 @@
 import mysql.connector as sq
 import os
+import sys
 
 # Define CSV file path
 csv_file_path = '/var/lib/mysql-files/monthly_revenue.csv'
 
 # Check if file exists
-if not os.path.exists(csv_file_path):
+if not os.path.isfile(csv_file_path):
     print("❌ CSV file not found!")
-    exit()
+    sys.exit(1)
 
 # Connect to MySQL
 mydb = sq.connect(
