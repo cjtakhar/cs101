@@ -35,5 +35,5 @@ df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 print(df.head())
 
 # Save the cleaned dataset to a new CSV file, excluding index column
-# df.to_csv("cleanercookies_best.csv", index=False)
+df.to_csv("cleanercookies_best.csv", index=False)
 
